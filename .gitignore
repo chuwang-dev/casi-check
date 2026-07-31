@@ -1,0 +1,10 @@
+cat << 'EOF' > .gitignore
+node_modules/
+.next/
+dist/
+build/
+.env
+.npm
+.vscode-server
+*.log
+EOF
