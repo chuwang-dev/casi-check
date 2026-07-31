@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casi check | Premium Auto Parts & Repair Services</title>
+    <style>
+        :root {
+            --navy: #0a192f;
+            --navy-light: #1e3a8a;
+            --cream: #fdfbf7;
+            --cream-accent: #f3efe6;
+            --white: #ffffff;
+            --text-dark: #1e293b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--cream);
+            color: var(--text-dark);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--navy);
+            color: var(--white);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--cream);
+            letter-spacing: 1px;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            margin-left: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--cream-accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(10, 25, 47, 0.85), rgba(10, 25, 47, 0.85)), url('images/hero-bg.webp') center/cover;
+            color: var(--white);
+            padding: 5rem 5%;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--cream);
+            margin-bottom: 2rem;
+        }
+
+        /* Search Bar */
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .search-container input {
+            flex: 1;
+            padding: 1rem;
+            border: none;
+            outline: none;
+            font-size: 1rem;
+        }
+
+        .search-container button {
+            background-color: var(--navy-light);
+            color: var(--white);
+            border: none;
+            padding: 0 2rem;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* Features Section */
+        .services {
+            padding: 4rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--navy);
+            margin-bottom: 3rem;
+            font-size: 2rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--navy);
+        }
+
+        .card h3 {
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        /* Booking Form */
+        .booking-section {
+            background-color: var(--cream-accent);
+            padding: 4rem 5%;
+        }
+
+        .booking-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--navy);
+            font-weight: 600;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 1rem;
+            background-color: var(--navy);
+            color: var(--white);
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--navy);
+            color: var(--cream);
+            text-align: center;
+            padding: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">CASI CHECK</div>
+        <nav>
+            <a href="#parts">Parts Catalog</a>
+            <a href="#services">Services</a>
+            <a href="#booking">Book Repair</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Quality Auto Parts & Diagnostic Repairs</h1>
+        <p>Find genuine vehicle components or book a repair session with experts.</p>
+        <div class="search-container">
+            <input type="text" placeholder="Search by Part Number, VIN, or Make...">
+            <button>Search</button>
+        </div>
+    </section>
+
+    <section class="services" id="parts">
+        <h2 class="section-title">Featured Auto Components</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Brake Assemblies & Pads</h3>
+                <p>High-performance OEM and aftermarket braking systems engineered for reliability.</p>
+            </div>
+            <div class="card">
+                <h3>Engine Diagnostics & Parts</h3>
+                <p>Sensors, belts, filters, and major internal engine components ready for shipment.</p>
+            </div>
+            <div class="card">
+                <h3>Suspension & Steering</h3>
+                <p>Struts, shocks, and control arms tailored for optimal road handling.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="booking-section" id="booking">
+        <h2 class="section-title">Schedule Diagnostic & Repair Service</h2>
+        <form class="booking-form">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" required>
+            </div>
+            <div class="form-group">
+                <label for="vehicle">Vehicle Make & Year</label>
+                <input type="text" id="vehicle" placeholder="e.g. 2021 Toyota Camry" required>
+            </div>
+            <div class="form-group">
+                <label for="service">Required Service</label>
+                <select id="service">
+                    <option>Full Vehicle Inspection (Check)</option>
+                    <option>Engine & Transmission Diagnostic</option>
+                    <option>Brake Service & Replacement</option>
+                    <option>General Repair</option>
+                </select>
+            </div>
+            <button type="submit" class="btn-submit">Confirm Booking Request</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Casi check. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

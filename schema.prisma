@@ -1,0 +1,70 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum Role {
+  ALUMNI
+  ADMIN
+}
+
+enum VerificationStatus {
+  PENDING
+  VERIFIED
+  REJECTED
+}
+
+model User {
+  id            String             @id @default(cuid())
+  email         String             @unique
+  passwordHash  String
+  role          Role               @default(ALUMNI)
+  status        VerificationStatus @default(PENDING)
+  createdAt     DateTime           @default(now())
+  updatedAt     DateTime           @updatedAt
+
+  profile       Profile?
+}
+
+model Profile {
+  id             String        @id @default(cuid())
+  userId         String        @unique
+  user           User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  firstName      String
+  lastName       String
+  graduationYear Int
+  degree         String
+  major          String
+  bio            String?
+  city           String?
+  country        String?
+  linkedinUrl    String?
+  avatarUrl      String?
+
+  experiences    Experience[]
+  
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+
+  @@index([graduationYear])
+  @@index([lastName, firstName])
+}
+
+model Experience {
+  id          String   @id @default(cuid())
+  profileId   String
+  profile     Profile  @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  
+  company     String
+  position    String
+  startDate   DateTime
+  endDate     DateTime?
+  isCurrent   Boolean  @default(false)
+
+  createdAt   DateTime @default(now())
+}

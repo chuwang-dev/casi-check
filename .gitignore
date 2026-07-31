@@ -8,3 +8,21 @@ build/
 .vscode-server
 *.log
 EOF
+# 1. Create .gitignore so node_modules and cache aren't tracked
+cat << 'EOF' > .gitignore
+node_modules/
+.next/
+dist/
+build/
+.env
+.npm
+*.log
+EOF
+
+# 2. Reset local Git tracking inside this directory
+rm -rf .git
+git init
+
+# 3. Add files and commit
+git add .
+git commit -m "Clean project root setup for Casi Check"
