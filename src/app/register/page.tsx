@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useTransition } from 'react';
-import { registerAlumni } from '@/app/actions';
+import { registerAlumni } from '../actions';
 
 export default function RegisterPage() {
   const [isPending, startTransition] = useTransition();

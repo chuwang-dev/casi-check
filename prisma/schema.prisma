@@ -8,10 +8,22 @@ datasource db {
   provider = "postgresql"
 }
 
-// Your models below...
 model User {
   id        String   @id @default(uuid())
   email     String   @unique
-  name      String?
+  password  String
+  status    String   @default("PENDING")
   createdAt DateTime @default(now())
+  profile   Profile?
+}
+
+model Profile {
+  id             String   @id @default(uuid())
+  firstName      String
+  lastName       String
+  graduationYear Int
+  degree         String?
+  major          String?
+  user           User     @relation(fields: [userId], references: [id])
+  userId         String   @unique
 }

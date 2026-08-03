@@ -1,5 +1,7 @@
-import { db } from '@/lib/db';
-import { updateVerificationStatus } from '@/app/actions';
+import { db } from '../../../lib/db';
+import { updateVerificationStatus } from '../../actions';
+
+export const dynamic = 'force-dynamic';
 
 export default async function AdminVerificationsPage() {
   const pendingUsers = await db.user.findMany({

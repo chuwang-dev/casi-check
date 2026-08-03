@@ -1,10 +1,6 @@
 services:
   - type: web
     name: casi-check
-    env: static
-    buildCommand: null
-    staticPublishPath: .
-    routes:
-      - type: rewrite
-        source: /*
-        destination: /index.html
+    env: node
+    buildCommand: npm run build
+    startCommand: npm start
