@@ -269,6 +269,17 @@ button {
   overflow-x: auto;
   padding-bottom: 0.5rem;
   scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  gap: 1rem;
+}
+
+.category-carousel::-webkit-scrollbar {
+  height: 8px;
+}
+
+.category-carousel::-webkit-scrollbar-thumb {
+  background: rgba(15, 37, 64, 0.22);
+  border-radius: 999px;
 }
 
 .category-card {
@@ -464,7 +475,7 @@ button {
 .footer {
   background: var(--navy);
   color: var(--cream);
-  padding: 3rem 0;
+  padding: 3rem 0 2rem;
 }
 
 .footer-inner {
@@ -509,7 +520,7 @@ button {
 
 @media (max-width: 800px) {
   .category-carousel {
-    grid-template-columns: repeat(10, minmax(200px, 1fr));
+    grid-template-columns: repeat(10, minmax(220px, 1fr));
   }
 
   .deals-grid,

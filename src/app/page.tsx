@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 
 type Product = {
   id: number;
@@ -27,28 +27,28 @@ type Testimonial = {
 const whatsappNumber = '08143832354';
 
 const categories: Category[] = [
-  { id: 1, title: 'Engine Parts', image: 'https://images.unsplash.com/photo-1512813382945-7e1aa8d973b8?auto=format&fit=crop&w=900&q=70', detail: 'Timing belts, valve covers, gaskets.' },
-  { id: 2, title: 'Brakes', image: 'https://images.unsplash.com/photo-1564471608985-a9ee7fbf8248?auto=format&fit=crop&w=900&q=70', detail: 'Brake pads, discs, calipers and sensors.' },
-  { id: 3, title: 'Suspension', image: 'https://images.unsplash.com/photo-1592085719699-6b45cd787297?auto=format&fit=crop&w=900&q=70', detail: 'Shocks, struts, springs and control arms.' },
-  { id: 4, title: 'Lighting', image: 'https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=900&q=70', detail: 'Headlights, bulbs, indicators and fog lamps.' },
-  { id: 5, title: 'Interior', image: 'https://images.unsplash.com/photo-1483721310020-03333e577078?auto=format&fit=crop&w=900&q=70', detail: 'Seat covers, mats, dash trims and panels.' },
-  { id: 6, title: 'Exterior', image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=70', detail: 'Bumpers, grills, mirrors and body trims.' },
-  { id: 7, title: 'Engine Oil', image: 'https://images.unsplash.com/photo-1581143411647-4b5f33db79f2?auto=format&fit=crop&w=900&q=70', detail: 'Lubricants, oil filters and service kits.' },
-  { id: 8, title: 'Brake Pads', image: 'https://images.unsplash.com/photo-1543163521-1bf1307f79d2?auto=format&fit=crop&w=900&q=70', detail: 'Premium brake pads for safety and control.' },
-  { id: 9, title: 'Tires & Wheels', image: 'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=900&q=70', detail: 'Tyres, rims, hubs and wheel accessories.' },
-  { id: 10, title: 'Cooling Systems', image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=70', detail: 'Radiators, hoses, pumps and fans.' },
+  { id: 1, title: 'Engine Parts', image: '/images/engine-part1.avif', detail: 'Timing belts, valve covers, gaskets.' },
+  { id: 2, title: 'Brakes', image: '/images/brake-pad.jpg', detail: 'Brake pads, discs, calipers and sensors.' },
+  { id: 3, title: 'Suspension', image: '/images/radiator-1.jpg', detail: 'Shocks, struts, springs and control arms.' },
+  { id: 4, title: 'Lighting', image: '/images/light-1.webp', detail: 'Headlights, bulbs, indicators and fog lamps.' },
+  { id: 5, title: 'Interior', image: '/images/air-filter-2.webp', detail: 'Seat covers, mats, dash trims and panels.' },
+  { id: 6, title: 'Exterior', image: '/images/exterior-1.avif', detail: 'Bumpers, grills, mirrors and body trims.' },
+  { id: 7, title: 'Engine Oil', image: '/images/engine-oil-1.webp', detail: 'Lubricants, oil filters and service kits.' },
+  { id: 8, title: 'Brake Pads', image: '/images/brake-pad.jpg', detail: 'Premium brake pads for safety and control.' },
+  { id: 9, title: 'Tires & Wheels', image: '/images/car-bearing.webp', detail: 'Tyres, rims, hubs and wheel accessories.' },
+  { id: 10, title: 'Cooling Systems', image: '/images/radiators-2.jpg', detail: 'Radiators, hoses, pumps and fans.' },
 ];
 
 const featuredProducts: Product[] = [
-  { id: 1, name: 'Front Hub Bearing', price: 100000, image: 'https://images.unsplash.com/photo-1597001468656-9dca67aa6c8b?auto=format&fit=crop&w=900&q=70', description: 'Premium OEM hub bearing for reliable performance.' },
-  { id: 2, name: 'Brake Pad Set', price: 39000, image: 'https://images.unsplash.com/photo-1542204165-9fd7e3f8d182?auto=format&fit=crop&w=900&q=70', description: 'Durable brake pads for secure stopping power.' },
-  { id: 3, name: 'Engine Oil 5W-30', price: 45000, image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=900&q=70', description: 'Full synthetic oil for smooth engine life.' },
+  { id: 1, name: 'Front Hub Bearing', price: 100000, image: '/images/car-bearing.webp', description: 'Premium OEM hub bearing for reliable performance.' },
+  { id: 2, name: 'Brake Pad Set', price: 39000, image: '/images/brake-pad.jpg', description: 'Durable brake pads for secure stopping power.' },
+  { id: 3, name: 'Engine Oil 5W-30', price: 45000, image: '/images/engine-oil-1.webp', description: 'Full synthetic oil for smooth engine life.' },
 ];
 
 const galleryProducts: Product[] = [
-  { id: 4, name: 'Air Filter Bundle', price: 8500, image: 'https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=900&q=70', description: 'Complete air and cabin filter bundle.' },
-  { id: 5, name: 'Complete Suspension Kit', price: 160000, image: 'https://images.unsplash.com/photo-1518128952393-13d96c8b7b4c?auto=format&fit=crop&w=900&q=70', description: 'Full suspension kit for a smoother ride.' },
-  { id: 6, name: 'Interior Mat Set', price: 15000, image: 'https://images.unsplash.com/photo-1515125520142-6324f7a3196f?auto=format&fit=crop&w=900&q=70', description: 'Custom-fit interior floor mats and covers.' },
+  { id: 4, name: 'Air Filter Bundle', price: 8500, image: '/images/air-filter.webp', description: 'Complete air and cabin filter bundle.' },
+  { id: 5, name: 'Complete Suspension Kit', price: 160000, image: '/images/radiator-1.jpg', description: 'Full suspension kit for a smoother ride.' },
+  { id: 6, name: 'Interior Mat Set', price: 15000, image: '/images/exterior-1.avif', description: 'Custom-fit interior floor mats and covers.' },
 ];
 
 const testimonials: Testimonial[] = [
@@ -71,6 +71,26 @@ export default function HomePage() {
   const removeFromCart = (index: number) => {
     setCartItems((prev) => prev.filter((_, itemIndex) => itemIndex !== index));
   };
+
+  const carouselRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const carousel = carouselRef.current;
+    if (!carousel) return;
+
+    const step = 240;
+    const interval = window.setInterval(() => {
+      if (!carousel) return;
+      const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
+      if (carousel.scrollLeft >= maxScrollLeft - 1) {
+        carousel.scrollTo({ left: 0, behavior: 'smooth' });
+      } else {
+        carousel.scrollBy({ left: step, behavior: 'smooth' });
+      }
+    }, 3200);
+
+    return () => window.clearInterval(interval);
+  }, []);
 
   return (
     <main>
@@ -130,7 +150,7 @@ export default function HomePage() {
             <p className="section-label">Top Categories of the Month</p>
             <h2>Shop the most popular auto part categories</h2>
           </div>
-          <div className="category-carousel">
+          <div className="category-carousel" ref={carouselRef}>
             {categories.map((category) => (
               <article className="category-card" key={category.id}>
                 <img loading="lazy" decoding="async" fetchPriority="low" src={category.image} alt={category.title} />
@@ -152,28 +172,28 @@ export default function HomePage() {
           </div>
                     <div className="deals-grid">
             <article className="deal-card">
-              <img loading="lazy" decoding="async" fetchPriority="low" src="https://images.unsplash.com/photo-1513875528457-3b4479d4e5b6?auto=format&fit=crop&w=900&q=80" alt="Engine Oil 5W-30" />
+              <img loading="lazy" decoding="async" fetchPriority="low" src="/images/engine-oil-1.webp" alt="Engine Oil 5W-30" />
               <div>
                 <h3>Engine Oil 5W-30</h3>
                 <p>Just NGN 43,000</p>
               </div>
-              <button className="link-button" onClick={() => addToCart({ id: 11, name: 'Engine Oil 5W-30', price: 43000, image: 'https://images.unsplash.com/photo-1513875528457-3b4479d4e5b6?auto=format&fit=crop&w=900&q=80', description: 'Synthetic engine oil for clean running.' })}>Add to Cart</button>
+              <button className="link-button" onClick={() => addToCart({ id: 11, name: 'Engine Oil 5W-30', price: 43000, image: '/images/engine-oil-1.webp', description: 'Synthetic engine oil for clean running.' })}>Add to Cart</button>
             </article>
             <article className="deal-card">
-              <img loading="lazy" decoding="async" fetchPriority="low" src="https://images.unsplash.com/photo-1593121352677-dc5f6b418ff4?auto=format&fit=crop&w=900&q=80" alt="Brake Pad Set" />
+              <img loading="lazy" decoding="async" fetchPriority="low" src="/images/brake-pad.jpg" alt="Brake Pad Set" />
               <div>
                 <h3>Brake Pad Set</h3>
                 <p>Just NGN 39,000</p>
               </div>
-              <button className="link-button" onClick={() => addToCart({ id: 12, name: 'Brake Pad Set', price: 39000, image: 'https://images.unsplash.com/photo-1593121352677-dc5f6b418ff4?auto=format&fit=crop&w=900&q=80', description: 'Premium brake pads for safe stopping.' })}>Add to Cart</button>
+              <button className="link-button" onClick={() => addToCart({ id: 12, name: 'Brake Pad Set', price: 39000, image: '/images/brake-pad.jpg', description: 'Premium brake pads for safe stopping.' })}>Add to Cart</button>
             </article>
             <article className="deal-card">
-              <img loading="lazy" decoding="async" fetchPriority="low" src="https://images.unsplash.com/photo-1517256064527-09c73fc73e69?auto=format&fit=crop&w=900&q=80" alt="LED Headlamp Set" />
+              <img loading="lazy" decoding="async" fetchPriority="low" src="/images/light-1.webp" alt="LED Headlamp Set" />
               <div>
                 <h3>LED Headlamp Set</h3>
                 <p>Just NGN 45,000</p>
               </div>
-              <button className="link-button" onClick={() => addToCart({ id: 13, name: 'LED Headlamp Set', price: 45000, image: 'https://images.unsplash.com/photo-1517256064527-09c73fc73e69?auto=format&fit=crop&w=900&q=80', description: 'Bright LED headlamps for night driving.' })}>Add to Cart</button>
+              <button className="link-button" onClick={() => addToCart({ id: 13, name: 'LED Headlamp Set', price: 45000, image: '/images/light-1.webp', description: 'Bright LED headlamps for night driving.' })}>Add to Cart</button>
             </article>
           </div>
         </div>
@@ -320,6 +340,9 @@ export default function HomePage() {
             <a href="#categories">Exterior</a>
             <a href="#contact">Contact</a>
           </div>
+        </div>
+        <div className="container footer-copy">
+          <p>© 2026 Casi-Check. All rights reserved.</p>
         </div>
       </footer>
     </main>
