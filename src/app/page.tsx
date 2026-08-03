@@ -27,28 +27,28 @@ type Testimonial = {
 const whatsappNumber = '08143832354';
 
 const categories: Category[] = [
-  { id: 1, title: 'Engine Parts', image: 'https://images.unsplash.com/photo-1517142089942-ba376ce32a2e?auto=format&fit=crop&w=900&q=80', detail: 'Timing belts, valve covers, gaskets.' },
-  { id: 2, title: 'Brakes', image: 'https://images.unsplash.com/photo-1549921296-3b95bb6d17df?auto=format&fit=crop&w=900&q=80', detail: 'Pads, discs, callipers, sensors.' },
-  { id: 3, title: 'Suspension', image: 'https://images.unsplash.com/photo-1517906409615-9bd5d98f9872?auto=format&fit=crop&w=900&q=80', detail: 'Shocks, struts, control arms.' },
-  { id: 4, title: 'Lighting', image: 'https://images.unsplash.com/photo-1558981285-c7b1f0f6041a?auto=format&fit=crop&w=900&q=80', detail: 'Headlights, bulbs, signal lights.' },
-  { id: 5, title: 'Interior', image: 'https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?auto=format&fit=crop&w=900&q=80', detail: 'Covers, carpets, trims, dash kits.' },
-  { id: 6, title: 'Exterior', image: 'https://images.unsplash.com/photo-1475180092658-5c8135c02083?auto=format&fit=crop&w=900&q=80', detail: 'Bumpers, grills, mirrors.' },
-  { id: 7, title: 'Filters', image: 'https://images.unsplash.com/photo-1499111314391-8d75f45c2b4e?auto=format&fit=crop&w=900&q=80', detail: 'Air, oil, fuel, cabin filters.' },
-  { id: 8, title: 'Electrical', image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=80', detail: 'Batteries, alternators, wiring.' },
-  { id: 9, title: 'Tires & Wheels', image: 'https://images.unsplash.com/photo-1483721310020-03333e577078?auto=format&fit=crop&w=900&q=80', detail: 'Tyres, rims, wheel accessories.' },
-  { id: 10, title: 'Cooling', image: 'https://images.unsplash.com/photo-1516515429575-9d41f4a69862?auto=format&fit=crop&w=900&q=80', detail: 'Radiators, hoses, water pumps.' },
+  { id: 1, title: 'Engine Parts', image: 'https://images.unsplash.com/photo-1512813382945-7e1aa8d973b8?auto=format&fit=crop&w=900&q=70', detail: 'Timing belts, valve covers, gaskets.' },
+  { id: 2, title: 'Brakes', image: 'https://images.unsplash.com/photo-1564471608985-a9ee7fbf8248?auto=format&fit=crop&w=900&q=70', detail: 'Brake pads, discs, calipers and sensors.' },
+  { id: 3, title: 'Suspension', image: 'https://images.unsplash.com/photo-1592085719699-6b45cd787297?auto=format&fit=crop&w=900&q=70', detail: 'Shocks, struts, springs and control arms.' },
+  { id: 4, title: 'Lighting', image: 'https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=900&q=70', detail: 'Headlights, bulbs, indicators and fog lamps.' },
+  { id: 5, title: 'Interior', image: 'https://images.unsplash.com/photo-1483721310020-03333e577078?auto=format&fit=crop&w=900&q=70', detail: 'Seat covers, mats, dash trims and panels.' },
+  { id: 6, title: 'Exterior', image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=70', detail: 'Bumpers, grills, mirrors and body trims.' },
+  { id: 7, title: 'Engine Oil', image: 'https://images.unsplash.com/photo-1581143411647-4b5f33db79f2?auto=format&fit=crop&w=900&q=70', detail: 'Lubricants, oil filters and service kits.' },
+  { id: 8, title: 'Brake Pads', image: 'https://images.unsplash.com/photo-1543163521-1bf1307f79d2?auto=format&fit=crop&w=900&q=70', detail: 'Premium brake pads for safety and control.' },
+  { id: 9, title: 'Tires & Wheels', image: 'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=900&q=70', detail: 'Tyres, rims, hubs and wheel accessories.' },
+  { id: 10, title: 'Cooling Systems', image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=70', detail: 'Radiators, hoses, pumps and fans.' },
 ];
 
 const featuredProducts: Product[] = [
-  { id: 1, name: 'Front Hub Bearing', price: 100000, image: 'https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=900&q=80', description: 'Premium OEM hub bearing for reliable performance.' },
-  { id: 2, name: 'Brake Kit Set', price: 43000, image: 'https://images.unsplash.com/photo-1597029946268-0848f2c11bda?auto=format&fit=crop&w=900&q=80', description: 'Complete brake system with pads and discs.' },
-  { id: 3, name: 'LED Headlamp Set', price: 45000, image: 'https://images.unsplash.com/photo-1517256064527-09c73fc73e69?auto=format&fit=crop&w=900&q=80', description: 'High-performance lighting for clear night driving.' },
+  { id: 1, name: 'Front Hub Bearing', price: 100000, image: 'https://images.unsplash.com/photo-1597001468656-9dca67aa6c8b?auto=format&fit=crop&w=900&q=70', description: 'Premium OEM hub bearing for reliable performance.' },
+  { id: 2, name: 'Brake Pad Set', price: 39000, image: 'https://images.unsplash.com/photo-1542204165-9fd7e3f8d182?auto=format&fit=crop&w=900&q=70', description: 'Durable brake pads for secure stopping power.' },
+  { id: 3, name: 'Engine Oil 5W-30', price: 45000, image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=900&q=70', description: 'Full synthetic oil for smooth engine life.' },
 ];
 
 const galleryProducts: Product[] = [
-  { id: 4, name: 'Air Filter Bundle', price: 8500, image: 'https://images.unsplash.com/photo-1510549819182-a0ec5e0d0e7b?auto=format&fit=crop&w=900&q=80', description: 'Everyday filter bundle for strong engine health.' },
-  { id: 5, name: 'Complete Suspension Kit', price: 160000, image: 'https://images.unsplash.com/photo-1553741632-cc44fef7be52?auto=format&fit=crop&w=900&q=80', description: 'Smooth ride suspension upgrade for heavy-duty use.' },
-  { id: 6, name: 'Master Brake Venza', price: 37000, image: 'https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?auto=format&fit=crop&w=900&q=80', description: 'Reliable master cylinder for Toyota Venza.' },
+  { id: 4, name: 'Air Filter Bundle', price: 8500, image: 'https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=900&q=70', description: 'Complete air and cabin filter bundle.' },
+  { id: 5, name: 'Complete Suspension Kit', price: 160000, image: 'https://images.unsplash.com/photo-1518128952393-13d96c8b7b4c?auto=format&fit=crop&w=900&q=70', description: 'Full suspension kit for a smoother ride.' },
+  { id: 6, name: 'Interior Mat Set', price: 15000, image: 'https://images.unsplash.com/photo-1515125520142-6324f7a3196f?auto=format&fit=crop&w=900&q=70', description: 'Custom-fit interior floor mats and covers.' },
 ];
 
 const testimonials: Testimonial[] = [
@@ -133,7 +133,7 @@ export default function HomePage() {
           <div className="category-carousel">
             {categories.map((category) => (
               <article className="category-card" key={category.id}>
-                <img src={category.image} alt={category.title} />
+                <img loading="lazy" decoding="async" fetchPriority="low" src={category.image} alt={category.title} />
                 <div className="category-card-body">
                   <h3>{category.title}</h3>
                   <p>{category.detail}</p>
@@ -150,30 +150,30 @@ export default function HomePage() {
             <p className="section-label">Deals of the Day</p>
             <h2>Save on high-demand auto components</h2>
           </div>
-          <div className="deals-grid">
+                    <div className="deals-grid">
             <article className="deal-card">
-              <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=900&q=80" alt="Toyota Shaft" />
+              <img loading="lazy" decoding="async" fetchPriority="low" src="https://images.unsplash.com/photo-1513875528457-3b4479d4e5b6?auto=format&fit=crop&w=900&q=80" alt="Engine Oil 5W-30" />
               <div>
-                <h3>Toyota Shaft</h3>
-                <p>Just NGN 190,000</p>
-              </div>
-              <button className="link-button" onClick={() => addToCart({ id: 11, name: 'Toyota Shaft', price: 190000, image: 'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=900&q=80', description: 'Heavy-duty shaft for Toyota models.' })}>Add to Cart</button>
-            </article>
-            <article className="deal-card">
-              <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=900&q=80" alt="Engine Valve" />
-              <div>
-                <h3>Engine Valve</h3>
+                <h3>Engine Oil 5W-30</h3>
                 <p>Just NGN 43,000</p>
               </div>
-              <button className="link-button" onClick={() => addToCart({ id: 12, name: 'Engine Valve', price: 43000, image: 'https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=900&q=80', description: 'Durable valve for engine rebuilds.' })}>Add to Cart</button>
+              <button className="link-button" onClick={() => addToCart({ id: 11, name: 'Engine Oil 5W-30', price: 43000, image: 'https://images.unsplash.com/photo-1513875528457-3b4479d4e5b6?auto=format&fit=crop&w=900&q=80', description: 'Synthetic engine oil for clean running.' })}>Add to Cart</button>
             </article>
             <article className="deal-card">
-              <img src="https://images.unsplash.com/photo-1517638851339-4aa0e62b9c52?auto=format&fit=crop&w=900&q=80" alt="Brake Kit" />
+              <img loading="lazy" decoding="async" fetchPriority="low" src="https://images.unsplash.com/photo-1593121352677-dc5f6b418ff4?auto=format&fit=crop&w=900&q=80" alt="Brake Pad Set" />
               <div>
-                <h3>Brake Kit</h3>
-                <p>Quality OEM replacements available.</p>
+                <h3>Brake Pad Set</h3>
+                <p>Just NGN 39,000</p>
               </div>
-              <button className="link-button" onClick={() => addToCart({ id: 13, name: 'Brake Kit', price: 82000, image: 'https://images.unsplash.com/photo-1517638851339-4aa0e62b9c52?auto=format&fit=crop&w=900&q=80', description: 'Complete brake kit for safe stopping.' })}>Add to Cart</button>
+              <button className="link-button" onClick={() => addToCart({ id: 12, name: 'Brake Pad Set', price: 39000, image: 'https://images.unsplash.com/photo-1593121352677-dc5f6b418ff4?auto=format&fit=crop&w=900&q=80', description: 'Premium brake pads for safe stopping.' })}>Add to Cart</button>
+            </article>
+            <article className="deal-card">
+              <img loading="lazy" decoding="async" fetchPriority="low" src="https://images.unsplash.com/photo-1517256064527-09c73fc73e69?auto=format&fit=crop&w=900&q=80" alt="LED Headlamp Set" />
+              <div>
+                <h3>LED Headlamp Set</h3>
+                <p>Just NGN 45,000</p>
+              </div>
+              <button className="link-button" onClick={() => addToCart({ id: 13, name: 'LED Headlamp Set', price: 45000, image: 'https://images.unsplash.com/photo-1517256064527-09c73fc73e69?auto=format&fit=crop&w=900&q=80', description: 'Bright LED headlamps for night driving.' })}>Add to Cart</button>
             </article>
           </div>
         </div>
@@ -188,7 +188,7 @@ export default function HomePage() {
           <div className="featured-grid">
             {featuredProducts.map((product) => (
               <article className="product-card" key={product.id}>
-                <img src={product.image} alt={product.name} />
+                <img loading="lazy" decoding="async" fetchPriority="low" src={product.image} alt={product.name} />
                 <h3>{product.name}</h3>
                 <p>{product.description}</p>
                 <p>₦{product.price.toLocaleString()}</p>
