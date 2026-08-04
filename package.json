@@ -3,8 +3,7 @@
   "version": "0.1.0",
   "engines": {
     "node": "24.x"
-  }
-},
+  },
   "scripts": {
     "dev": "next dev",
     "build": "npx prisma generate && next build",
@@ -16,8 +15,9 @@
     "@prisma/adapter-pg": "^7.9.1",
     "@prisma/client": "^7.9.1",
     "@prisma/config": "^7.9.1",
+    "@vercel/analytics": "^2.0.1",
     "dotenv": "^16.4.5",
-    "next": "latest",
+    "next": "^16.3.0",
     "react": "latest",
     "react-dom": "latest"
   },
