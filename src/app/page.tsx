@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { withCdnUrl } from '../lib/cdn';
 
 type Product = {
   id: number;
@@ -153,7 +154,7 @@ export default function HomePage() {
           <div className="category-carousel" ref={carouselRef}>
             {categories.map((category) => (
               <article className="category-card" key={category.id}>
-                <img loading="lazy" decoding="async" fetchPriority="low" src={category.image} alt={category.title} />
+                <img loading="lazy" decoding="async" fetchPriority="low" src={withCdnUrl(category.image)} alt={category.title} />
                 <div className="category-card-body">
                   <h3>{category.title}</h3>
                   <p>{category.detail}</p>
@@ -172,7 +173,7 @@ export default function HomePage() {
           </div>
                     <div className="deals-grid">
             <article className="deal-card">
-              <img loading="lazy" decoding="async" fetchPriority="low" src="/images/engine-oil-1.webp" alt="Engine Oil 5W-30" />
+              <img loading="lazy" decoding="async" fetchPriority="low" src={withCdnUrl('/images/engine-oil-1.webp')} alt="Engine Oil 5W-30" />
               <div>
                 <h3>Engine Oil 5W-30</h3>
                 <p>Just NGN 43,000</p>
@@ -180,7 +181,7 @@ export default function HomePage() {
               <button className="link-button" onClick={() => addToCart({ id: 11, name: 'Engine Oil 5W-30', price: 43000, image: '/images/engine-oil-1.webp', description: 'Synthetic engine oil for clean running.' })}>Add to Cart</button>
             </article>
             <article className="deal-card">
-              <img loading="lazy" decoding="async" fetchPriority="low" src="/images/brake-pad.jpg" alt="Brake Pad Set" />
+              <img loading="lazy" decoding="async" fetchPriority="low" src={withCdnUrl('/images/brake-pad.jpg')} alt="Brake Pad Set" />
               <div>
                 <h3>Brake Pad Set</h3>
                 <p>Just NGN 39,000</p>
@@ -188,7 +189,7 @@ export default function HomePage() {
               <button className="link-button" onClick={() => addToCart({ id: 12, name: 'Brake Pad Set', price: 39000, image: '/images/brake-pad.jpg', description: 'Premium brake pads for safe stopping.' })}>Add to Cart</button>
             </article>
             <article className="deal-card">
-              <img loading="lazy" decoding="async" fetchPriority="low" src="/images/light-1.webp" alt="LED Headlamp Set" />
+              <img loading="lazy" decoding="async" fetchPriority="low" src={withCdnUrl('/images/light-1.webp')} alt="LED Headlamp Set" />
               <div>
                 <h3>LED Headlamp Set</h3>
                 <p>Just NGN 45,000</p>
@@ -208,7 +209,7 @@ export default function HomePage() {
           <div className="featured-grid">
             {featuredProducts.map((product) => (
               <article className="product-card" key={product.id}>
-                <img loading="lazy" decoding="async" fetchPriority="low" src={product.image} alt={product.name} />
+                <img loading="lazy" decoding="async" fetchPriority="low" src={withCdnUrl(product.image)} alt={product.name} />
                 <h3>{product.name}</h3>
                 <p>{product.description}</p>
                 <p>₦{product.price.toLocaleString()}</p>
@@ -229,7 +230,7 @@ export default function HomePage() {
             {galleryProducts.map((product) => (
               <article className="product-card" key={product.id}>
                 <figure>
-                  <img src={product.image} alt={product.name} />
+                  <img src={withCdnUrl(product.image)} alt={product.name} />
                 </figure>
                 <h3>{product.name}</h3>
                 <p>{product.description}</p>

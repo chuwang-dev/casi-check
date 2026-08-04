@@ -14,6 +14,10 @@ export default async function AdminVerificationsPage() {
     <div className="max-w-6xl mx-auto py-10 px-4">
       <h1 className="text-2xl font-bold text-gray-900 mb-6">GICOSA Admin — Pending Verifications</h1>
 
+      <div className="mb-6 rounded-md border border-green-200 bg-green-50 px-4 py-3 text-sm text-green-700">
+        Approve or reject submissions from this screen. A small confirmation message will appear after each action.
+      </div>
+
       {pendingUsers.length === 0 ? (
         <div className="bg-white p-6 rounded-lg border text-gray-500 text-center">
           🎉 No pending alumni verifications at the moment!

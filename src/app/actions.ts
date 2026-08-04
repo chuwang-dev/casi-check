@@ -1,5 +1,6 @@
 'use server';
 
+import { revalidatePath } from 'next/cache';
 import { db } from '../lib/db';
 
 export async function registerAlumni(formData: FormData) {
@@ -37,6 +38,7 @@ export async function registerAlumni(formData: FormData) {
     },
   });
 
+  revalidatePath('/admin/verifications');
   return { success: true };
 }
 
@@ -45,4 +47,7 @@ export async function updateVerificationStatus(userId: string, status: 'VERIFIED
     where: { id: userId },
     data: { status },
   });
+
+  revalidatePath('/admin/verifications');
+  return { success: true, status };
 }
