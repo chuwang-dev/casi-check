@@ -4,9 +4,27 @@ import type { NextRequest } from 'next/server';
 export function middleware(request: NextRequest) {
   // Grab session token (e.g., from an HTTP-only auth cookie)
   const sessionToken = request.cookies.get('session_token')?.value;
+  const adminSessionToken = request.cookies.get('admin_session_token')?.value;
   const { pathname } = request.nextUrl;
 
-  // Define route protections
+  // --- Admin portal protection ---
+  const isAdminRoute = pathname.startsWith('/admin');
+  const isAdminLoginRoute = pathname === '/admin/login';
+
+  if (isAdminRoute && !isAdminLoginRoute) {
+    if (!adminSessionToken) {
+      const loginUrl = new URL('/admin/login', request.url);
+      loginUrl.searchParams.set('callbackUrl', pathname);
+      return NextResponse.redirect(loginUrl);
+    }
+  }
+
+  // Already-authenticated admins visiting login page go to verifications
+  if (isAdminLoginRoute && adminSessionToken) {
+    return NextResponse.redirect(new URL('/admin/verifications', request.url));
+  }
+
+  // --- Alumni portal/directory protection (existing) ---
   const isProtectedPortalRoute = pathname.startsWith('/portal') || pathname.startsWith('/directory');
   const isAuthRoute = pathname.startsWith('/login') || pathname.startsWith('/register');
 
