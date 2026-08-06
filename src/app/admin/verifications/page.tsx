@@ -1,9 +1,12 @@
 import { db } from '../../../lib/db';
-import { updateVerificationStatus } from '../../actions';
+import { getCurrentAdmin } from '../../../lib/auth';
+import { logoutAdmin, updateVerificationStatus } from '../../actions';
 
 export const dynamic = 'force-dynamic';
 
 export default async function AdminVerificationsPage() {
+  const admin = await getCurrentAdmin();
+
   const pendingUsers = await db.user.findMany({
     where: { status: 'PENDING' },
     include: { profile: true },
@@ -12,7 +15,27 @@ export default async function AdminVerificationsPage() {
 
   return (
     <div className="max-w-6xl mx-auto py-10 px-4">
-      <h1 className="text-2xl font-bold text-gray-900 mb-6">GICOSA Admin — Pending Verifications</h1>
+      <div className="flex items-center justify-between mb-6">
+        <div>
+          <h1 className="text-2xl font-bold text-gray-900">GICOSA Admin — Pending Verifications</h1>
+          {admin?.email && (
+            <p className="text-sm text-gray-500 mt-1">Signed in as {admin.email}</p>
+          )}
+        </div>
+        <form
+          action={async () => {
+            'use server';
+            await logoutAdmin();
+          }}
+        >
+          <button
+            type="submit"
+            className="bg-gray-800 hover:bg-gray-900 text-white text-xs font-semibold px-4 py-2 rounded transition"
+          >
+            Logout
+          </button>
+        </form>
+      </div>
 
       <div className="mb-6 rounded-md border border-green-200 bg-green-50 px-4 py-3 text-sm text-green-700">
         Approve or reject submissions from this screen. A small confirmation message will appear after each action.

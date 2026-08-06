@@ -6,3 +6,4 @@ build/
 .npm
 .vscode-server
 *.log
+*.tsbuildinfo
