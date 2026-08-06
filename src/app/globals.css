@@ -1,13 +1,17 @@
 :root {
   color-scheme: light;
   font-family: Inter, ui-sans-serif, system-ui, sans-serif;
-  --navy: #0f2540;
-  --cream: #f7f1e9;
+  --navy: #1e56a0;
+  --navy-dark: #123b7a;
+  --cream: #fffaf2;
   --white: #ffffff;
   --text: #10243c;
   --muted: #5e6f85;
-  --border: rgba(15, 37, 64, 0.08);
-  --panel: rgba(255, 255, 255, 0.94);
+  --border: rgba(30, 86, 160, 0.12);
+  --panel: rgba(255, 255, 255, 0.96);
+  --accent: #f59e0b;
+  --accent-2: #ef4444;
+  --accent-3: #10b981;
 }
 
 * {
@@ -117,7 +121,7 @@ button {
 }
 
 .hero {
-  background: linear-gradient(180deg, rgba(15, 37, 64, 0.95) 0%, rgba(15, 37, 64, 0.85) 100%);
+  background: linear-gradient(135deg, #1e56a0 0%, #2563eb 50%, #3b82f6 100%);
   color: var(--white);
   padding: 5rem 0 4rem;
 }
@@ -171,13 +175,13 @@ button {
 }
 
 .button-primary {
-  background: var(--cream);
-  color: var(--navy);
+  background: var(--accent);
+  color: #fff;
 }
 
 .button-secondary {
   background: transparent;
-  border-color: rgba(255, 255, 255, 0.35);
+  border-color: rgba(255, 255, 255, 0.5);
   color: var(--white);
 }
 
@@ -442,7 +446,7 @@ button {
 }
 
 .contact-panel {
-  background: var(--navy);
+  background: linear-gradient(135deg, #1e56a0 0%, #2563eb 60%, #f59e0b 160%);
   color: var(--cream);
   border-radius: 24px;
   padding: 2.5rem;
@@ -473,7 +477,7 @@ button {
 }
 
 .footer {
-  background: var(--navy);
+  background: var(--navy-dark);
   color: var(--cream);
   padding: 3rem 0 2rem;
 }

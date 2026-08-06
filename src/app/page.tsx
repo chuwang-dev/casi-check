@@ -36,20 +36,26 @@ const categories: Category[] = [
   { id: 6, title: 'Exterior', image: '/images/exterior-1.avif', detail: 'Bumpers, grills, mirrors and body trims.' },
   { id: 7, title: 'Engine Oil', image: '/images/engine-oil-1.webp', detail: 'Lubricants, oil filters and service kits.' },
   { id: 8, title: 'Brake Pads', image: '/images/brake-pad.jpg', detail: 'Premium brake pads for safety and control.' },
-  { id: 9, title: 'Tires & Wheels', image: '/images/car-bearing.webp', detail: 'Tyres, rims, hubs and wheel accessories.' },
-  { id: 10, title: 'Cooling Systems', image: '/images/radiators-2.jpg', detail: 'Radiators, hoses, pumps and fans.' },
+  { id: 9, title: 'Car Rims', image: '/images/car-rim.webp', detail: 'Alloy rims, wheel hubs and tire accessories.' },
+  { id: 10, title: 'Car Batteries', image: '/images/car-battery.webp', detail: 'High-capacity auto batteries for reliable starts.' },
+  { id: 11, title: 'Tires & Wheels', image: '/images/car-bearing.webp', detail: 'Tyres, rims, hubs and wheel accessories.' },
+  { id: 12, title: 'Cooling Systems', image: '/images/radiators-2.jpg', detail: 'Radiators, hoses, pumps and fans.' },
 ];
 
 const featuredProducts: Product[] = [
   { id: 1, name: 'Front Hub Bearing', price: 100000, image: '/images/car-bearing.webp', description: 'Premium OEM hub bearing for reliable performance.' },
   { id: 2, name: 'Brake Pad Set', price: 39000, image: '/images/brake-pad.jpg', description: 'Durable brake pads for secure stopping power.' },
   { id: 3, name: 'Engine Oil 5W-30', price: 45000, image: '/images/engine-oil-1.webp', description: 'Full synthetic oil for smooth engine life.' },
+  { id: 4, name: 'Alloy Car Rim', price: 185000, image: '/images/car-rim.webp', description: 'Premium alloy rim for style and performance.' },
+  { id: 5, name: 'Car Battery 12V', price: 95000, image: '/images/car-battery.webp', description: 'Long-lasting 12V battery for reliable starts.' },
 ];
 
 const galleryProducts: Product[] = [
-  { id: 4, name: 'Air Filter Bundle', price: 8500, image: '/images/air-filter.webp', description: 'Complete air and cabin filter bundle.' },
-  { id: 5, name: 'Complete Suspension Kit', price: 160000, image: '/images/radiator-1.jpg', description: 'Full suspension kit for a smoother ride.' },
-  { id: 6, name: 'Interior Mat Set', price: 15000, image: '/images/exterior-1.avif', description: 'Custom-fit interior floor mats and covers.' },
+  { id: 6, name: 'Air Filter Bundle', price: 8500, image: '/images/air-filter.webp', description: 'Complete air and cabin filter bundle.' },
+  { id: 7, name: 'Complete Suspension Kit', price: 160000, image: '/images/radiator-1.jpg', description: 'Full suspension kit for a smoother ride.' },
+  { id: 8, name: 'Sport Alloy Rim', price: 210000, image: '/images/car-rim.webp', description: 'Sporty alloy rim for a bold look.' },
+  { id: 9, name: 'Heavy-Duty Car Battery', price: 120000, image: '/images/car-battery.webp', description: 'Heavy-duty battery for trucks and SUVs.' },
+  { id: 10, name: 'Interior Mat Set', price: 15000, image: '/images/exterior-1.avif', description: 'Custom-fit interior floor mats and covers.' },
 ];
 
 const testimonials: Testimonial[] = [
@@ -195,6 +201,22 @@ export default function HomePage() {
                 <p>Just NGN 45,000</p>
               </div>
               <button className="link-button" onClick={() => addToCart({ id: 13, name: 'LED Headlamp Set', price: 45000, image: '/images/light-1.webp', description: 'Bright LED headlamps for night driving.' })}>Add to Cart</button>
+            </article>
+            <article className="deal-card">
+              <img loading="lazy" decoding="async" fetchPriority="low" src={withCdnUrl('/images/car-rim.webp')} alt="Alloy Car Rim" />
+              <div>
+                <h3>Alloy Car Rim</h3>
+                <p>Just NGN 185,000</p>
+              </div>
+              <button className="link-button" onClick={() => addToCart({ id: 14, name: 'Alloy Car Rim', price: 185000, image: '/images/car-rim.webp', description: 'Premium alloy rim for style and performance.' })}>Add to Cart</button>
+            </article>
+            <article className="deal-card">
+              <img loading="lazy" decoding="async" fetchPriority="low" src={withCdnUrl('/images/car-battery.webp')} alt="Car Battery 12V" />
+              <div>
+                <h3>Car Battery 12V</h3>
+                <p>Just NGN 95,000</p>
+              </div>
+              <button className="link-button" onClick={() => addToCart({ id: 15, name: 'Car Battery 12V', price: 95000, image: '/images/car-battery.webp', description: 'Long-lasting 12V battery for reliable starts.' })}>Add to Cart</button>
             </article>
           </div>
         </div>
